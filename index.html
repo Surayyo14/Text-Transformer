@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matn O'zgartiruvchi</title>
+</head>
+<body>
+    <h2>Matn o‘zgartiruvchi</h2>
+    <textarea id="matn" rows="4" cols="50"></textarea><br>
+    <button onclick="kattaHarf()">Katta Harflar</button>
+    <button onclick="kichikHarf()">Kichik Harflar</button>
+    <button onclick="boshHarflar()">Bosh Harflar</button>
+
+    <script>
+        function kattaHarf() {
+            let text = document.getElementById("matn").value;
+            document.getElementById("matn").value = text.toUpperCase();
+        }
+
+        function kichikHarf() {
+            let text = document.getElementById("matn").value;
+            document.getElementById("matn").value = text.toLowerCase();
+        }
+
+        function boshHarflar() {
+            let text = document.getElementById("matn").value.toLowerCase();
+            let words = text.split(' ');
+            for (let i = 0; i < words.length; i++) {
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+            }
+            document.getElementById("matn").value = words.join(' ');
+        }
+    </script>
+</body>
+</html>
